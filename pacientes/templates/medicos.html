@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="30">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">  
+
+    <title>Grilla de pacientes</title>
+</head>
+<body>
+    {%for paciente in pacientes_info %}
+        <div class = "pacientes-container">
+        <p class = "pacientes-container__data">{{paciente.nombre}}</p>
+        <p class = "pacientes-container__data">{{paciente.telefono}}</p>
+        <p class = "pacientes-container__data">Sintomas: {{paciente.sintomas}}</p>
+        <a href = "{% url 'eliminar_pacientes' paciente.id %}" class = "pacientes-container__data">Eliminar</a>
+        </div>
+    {%endfor%}
+
+
+</body>
+</html>
