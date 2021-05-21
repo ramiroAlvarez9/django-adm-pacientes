@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     
-    <link rel="stylesheet" href="{% static 'styles.css' %}">    
+    <link rel="stylesheet" href="{% static 'mesa-de-entrada.css' %}">    
     <link rel="stylesheet" href="{% static 'reset.min.css'%}">  
     <title>Mesa de entrada</title>
 </head>
 <body class = "mesa-entrada">
-<div class = "container-form">
 
+<div class = "container-form">
+  
     <form action = "/mesaentrada/" method="post" class = "form">
         {% csrf_token %}
         <p class = "form__p">Nombre</p>
@@ -21,7 +22,6 @@
         <input type ="text" name = "telefono">
         <p class = "form__p">Síntomas</p>
         <textarea class = "textarea" name = "sintomas"></textarea>
-        
         <input type ="submit" value = "Guardar">
     </form>
 
