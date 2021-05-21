@@ -6,7 +6,7 @@ body {
     height: 100vh;
     background-color: #111120;
     position: absolute;
-    z-index: -2;
+    z-index: -1;  
     display:flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@ body {
     font-size: 50px;
     animation: beat 5s;
     opacity:0%;
-    display:none;
+  
 }
 @keyframes beat {
     0%{
@@ -50,7 +50,7 @@ body {
     flex-direction: column;
 }
 .container__button{
-    background-color: #0400DB;
+    background-color: #000031de;
     width:287px;
     height: 102px;
     margin-bottom: 50px;
@@ -94,7 +94,7 @@ body {
 .form__p{
     font-size: 15px;
     margin-bottom:10px;
-    color: #0400DB;
+    color: #000031de;
 }
 
 input[name]{
@@ -128,19 +128,6 @@ input[type = "submit"]{
     border-style:none;
     background-color: #0400DB;
     color: white;
-
-}
-
-/* medicos */
-
-.pacientes-container{
-    border: solid 1px black;
-    border-radius: 10px;
-    margin-bottom:10px;
-}
-
-.pacientes-container__data{
-    margin-left: 10px;
 }
 
 @media (min-width: 1366px){

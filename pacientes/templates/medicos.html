@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="30">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}">  
+    <link rel="stylesheet" href="{% static 'medicos.css' %}">  
 
     <title>Grilla de pacientes</title>
 </head>
 <body>
     {%for paciente in pacientes_info %}
         <div class = "pacientes-container">
-        <p class = "pacientes-container__data">{{paciente.nombre}}</p>
-        <p class = "pacientes-container__data">{{paciente.telefono}}</p>
-        <p class = "pacientes-container__data">Sintomas: {{paciente.sintomas}}</p>
-        <a href = "{% url 'eliminar_pacientes' paciente.id %}" class = "pacientes-container__data">Eliminar</a>
+        <p class = "pacientes-container__data"><img src = "{% static 'images/person.svg' %}"><strong>{{paciente.nombre}}</strong></p>
+        <p class = "pacientes-container__data"><img src = "{% static 'images/phone.svg' %}"><strong>{{paciente.telefono}}</strong></p>
+        <p class = "pacientes-container__data pacientes-container__data--sintomas"><img src = "{% static 'images/notes.svg' %}"><strong>{{paciente.sintomas}}</strong></p>
+        <a href = "{% url 'eliminar_pacientes' paciente.id %}" class = "pacientes-container__data pacientes-container__data--a"><img src = "{% static 'images/close.svg' %}" width = "25" height = "25">¿Atendido?</a>
         </div>
     {%endfor%}
 

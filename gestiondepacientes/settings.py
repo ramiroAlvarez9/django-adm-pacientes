@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'livereload',
     'django.contrib.staticfiles',
     'pacientes',
+    'phone_field',
    
 
 ]
