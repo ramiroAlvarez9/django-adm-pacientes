@@ -23,10 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(d1y-ce^t^&^+0+5g-3nq1e3*l74cqc$$v-x0#!fb%skzzuifx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -52,7 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-     'livereload.middleware.LiveReloadScript',
+    'livereload.middleware.LiveReloadScript',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ]
 
@@ -81,16 +81,28 @@ WSGI_APPLICATION = 'gestiondepacientes.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'pacientes',
+#        'USER': 'ramiro3021',
+#        'PASSWORD': '154885795',
+#        'HOST': 'localhost',
+#        'POST': '',
+#        
+#    }
+#}
+import dj_database_url
+from decouple import config
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'pacientes',
-        'USER': 'ramiro3021',
-        'PASSWORD': '154885795',
-        'HOST': 'localhost',
-        'POST': '',
-        
-    }
+    'default':dj_database_url.config(
+        default = config('DATABASE_URL')
+
+    )
+
+
+
 }
 
 
@@ -130,7 +142,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static')
+)
 
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

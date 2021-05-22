@@ -1,0 +1,1 @@
+web: gunicorn administrador-de-pacientes --log-file -
