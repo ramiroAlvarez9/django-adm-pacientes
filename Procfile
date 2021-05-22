@@ -1,1 +1,1 @@
-web: gunicorn administrador-de-pacientes --log-file -
+web: gunicorn gestiondepacientes --log-file -
