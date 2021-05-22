@@ -4,6 +4,7 @@
 
         "editor.wordBasedSuggestions": false,
     },
+    "git.ignoreLimitWarning": true,
     
     
     
